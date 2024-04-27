@@ -142,13 +142,13 @@ const Columns = ({columnA, columnB, link, setColumnA, setColumnB, setLink, match
         <Col lg={12}>
           <div className="mt-4 d-flex justify-content-evenly align-items-center gap-2">
             <button
-              className="btn btn-primary btn-lg w-25"
+              className="btn btn-primary btn-md w-50"
               onClick={validateLink}
             >
               Submit
             </button>
             <button
-              className="btn btn-dark btn-lg w-25"
+              className="btn btn-dark btn-md w-50"
               onClick={onResetClick}
             >
               Reset
