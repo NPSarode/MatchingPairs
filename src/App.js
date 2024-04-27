@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { Card, CardBody, Container } from "reactstrap";
+import { data } from "./components/Data";
+import Columns from "./components/Columns";
+import Header from "./components/Header";
 
 function App() {
+  const [columnA, setColumnA] = useState(data[0]);
+  const [columnB, setColumnB] = useState(data[1]);
+  const matches = data[2];
+
+  const [link, setLink] = useState({
+    start: null,
+    end: null,
+    start_id: -1,
+    end_id: -1,
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Container fluid className="p-0">
+        <Card className="bg-secondary bg-opacity-50" style={{minHeight: '100vh'}}>
+          <CardBody>
+
+            <Header />
+
+            <Columns
+              columnA={columnA}
+              setColumnA={setColumnA}
+              columnB={columnB}
+              setColumnB={setColumnB}
+              link={link}
+              setLink={setLink}
+              matches={matches}
+            />
+
+            {/* <Footer/> */}
+          </CardBody>
+        </Card>
+      </Container>
+    </React.Fragment>
   );
 }
 
